@@ -31,13 +31,14 @@ router.post('/users/login', async function(req, res) {
 
     } catch(e) {
         res.status(400).send(e)
-        console.log(e)
+        // console.log(e)
     }
 })
 
 router.get('/users/me', auth, async (req, res) => {
-    await req.user.populate('tasks').execPopulate()
-    console.log(req.user.tasks)
+    // await req.user.populate('tasks').execPopulate()
+    // console.log(req.user.tasks)
+    res.send(req.user)
 })
 
 router.post('/users/logout', auth, async (req, res) => {
